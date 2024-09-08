@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:universe_ai/helper/global.dart';
 import 'package:universe_ai/widget/custom_loader.dart';
-// import 'package:universe_ai/screens/home_screen/home_screen.dart';
+import 'package:universe_ai/screens/home_screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
