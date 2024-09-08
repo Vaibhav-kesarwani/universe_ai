@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:universe_ai/app/app.dart';
 
-void main() {
-  // Make the intial thigs to learn and then after run the app 
+Future<void> main() async {
+  // Make the intial things to exectue before the app runs
   WidgetsFlutterBinding.ensureInitialized();
 
   // To trigger the fullscreen while splash screen is appearing
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   runApp(const MyApp());
 }
