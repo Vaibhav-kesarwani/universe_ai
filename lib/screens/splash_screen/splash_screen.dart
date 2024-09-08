@@ -10,6 +10,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  // Wait for the some time and than move ahead to home screen
   @override
   void initState() {
     super.initState();
