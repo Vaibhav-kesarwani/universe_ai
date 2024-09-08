@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:universe_ai/screens/splash_screen/splash_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(),
+      home: const SplashScreen(),
     );
   }
 }
