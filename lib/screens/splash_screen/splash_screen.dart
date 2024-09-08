@@ -17,7 +17,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Card(
-          color: Colors.blue,
+          elevation: 0,
+          color: Colors.transparent,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(20),
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           child: Image.asset(
             'assets/images/logo.png',
-            width: mq.width * .55,
+            width: mq.width * 1,
           ),
         ),
       ),
