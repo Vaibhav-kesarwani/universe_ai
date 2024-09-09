@@ -40,6 +40,7 @@ class OnboardingScreen extends StatelessWidget {
               Lottie.asset(
                 'assets/onboarding_animation/${list[i].animation}.json',
                 height: mq.height * .6,
+                width: isLast ? mq.width * .7 : null,
               ),
               // Title
               Text(
