@@ -26,77 +26,83 @@ class OnboardingScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      body: Column(
-        children: [
-          // Lottie animation
-          Lottie.asset(
-            'assets/onboarding_animation/ai_ask_me.json',
-            height: mq.height * .6,
-          ),
-          // Title
-          const Text(
-            'Ask me Anything',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w900,
-              letterSpacing: .5,
-            ),
-          ),
-          // Spacing
-          SizedBox(height: mq.height * .01),
-          // Subtitle
-          SizedBox(
-            width: mq.width * .7,
-            child: const Text(
-              'I can be your Best Friend & Your can ask me anything & I will help you!',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 13.5,
-                letterSpacing: .5,
-                color: Colors.black54,
+      body: PageView.builder(
+        itemCount: list.length,
+        itemBuilder: (ctx, i) {
+          return Column(
+            children: [
+              // Lottie animation
+              Lottie.asset(
+                'assets/onboarding_animation/${list[i].animation}.json',
+                height: mq.height * .6,
               ),
-            ),
-          ),
-          // Spacer
-          const Spacer(),
-          // Page Indicator
-          Wrap(
-            spacing: 5,
-            children: List.generate(
-              2,
-              (i) => Container(
-                width: 10,
-                height: 8,
-                decoration: const BoxDecoration(
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+              // Title
+              Text(
+                list[i].title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: .5,
                 ),
               ),
-            ),
-          ),
-          // Spacer
-          const Spacer(),
-          // Button
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.lightBlue,
-              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-              shape: const StadiumBorder(),
-              elevation: 0,
-              minimumSize: Size(mq.width * .4, 50),
-            ),
-            onPressed: () {},
-            child: const Text(
-              "Next",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+              // Spacing
+              SizedBox(height: mq.height * .01),
+              // Subtitle
+              SizedBox(
+                width: mq.width * .7,
+                child: Text(
+                  list[i].subtitle,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 13.5,
+                    letterSpacing: .5,
+                    color: Colors.black54,
+                  ),
+                ),
               ),
-            ),
-          ),
-          const Spacer(flex: 2),
-        ],
+              // Spacer
+              const Spacer(),
+              // Page Indicator
+              Wrap(
+                spacing: 5,
+                children: List.generate(
+                  list.length,
+                  (ind) => Container(
+                    width: ind == i ? 20 : 10,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: ind == i ? Colors.blue : Colors.grey,
+                      borderRadius: const BorderRadius.all(Radius.circular(5)),
+                    ),
+                  ),
+                ),
+              ),
+              // Spacer
+              const Spacer(),
+              // Button
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.lightBlue,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  shape: const StadiumBorder(),
+                  elevation: 0,
+                  minimumSize: Size(mq.width * .4, 50),
+                ),
+                onPressed: () {},
+                child: const Text(
+                  "Next",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const Spacer(flex: 2),
+            ],
+          );
+        },
       ),
     );
   }
