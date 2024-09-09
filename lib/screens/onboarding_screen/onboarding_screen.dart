@@ -29,6 +29,7 @@ class OnboardingScreen extends StatelessWidget {
       body: PageView.builder(
         itemCount: list.length,
         itemBuilder: (ctx, i) {
+          final isLast = i == list.length - 1;
           return Column(
             children: [
               // Lottie animation
@@ -90,9 +91,9 @@ class OnboardingScreen extends StatelessWidget {
                   minimumSize: Size(mq.width * .4, 50),
                 ),
                 onPressed: () {},
-                child: const Text(
-                  "Next",
-                  style: TextStyle(
+                child: Text(
+                  isLast ? "Finish" : "Next",
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
