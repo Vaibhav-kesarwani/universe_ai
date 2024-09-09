@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:universe_ai/helper/global.dart';
 import 'package:universe_ai/model/onboard.dart';
+import 'package:universe_ai/screens/home_screen/home_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final c = PageController();
+
     final list = [
       // Onboarding screen 1
       Onboard(
@@ -27,6 +30,7 @@ class OnboardingScreen extends StatelessWidget {
 
     return Scaffold(
       body: PageView.builder(
+        controller: c,
         itemCount: list.length,
         itemBuilder: (ctx, i) {
           final isLast = i == list.length - 1;
@@ -90,7 +94,20 @@ class OnboardingScreen extends StatelessWidget {
                   elevation: 0,
                   minimumSize: Size(mq.width * .4, 50),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  if (isLast) {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (_) => const HomeScreen(),
+                      ),
+                    );
+                  } else {
+                    c.nextPage(
+                      duration: const Duration(milliseconds: 600),
+                      curve: Curves.ease,
+                    );
+                  }
+                },
                 child: Text(
                   isLast ? "Finish" : "Next",
                   style: const TextStyle(
