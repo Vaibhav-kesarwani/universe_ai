@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:universe_ai/helper/global.dart';
+import 'package:universe_ai/model/onboard.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final list = [
+      // Onboarding screen 1
+      Onboard(
+        title: 'Ask me Anything',
+        subtitle:
+            'I can be your Best Friend & Your can ask me anything & I will help you!',
+        animation: 'ai_ask_me',
+      ),
+      // Onboarding screen 2
+      Onboard(
+        title: 'Imagination to Reality',
+        subtitle:
+            'Just Imagine anything & I will make it Reality for you. Just Ask me!',
+        animation: 'ai_play',
+      ),
+    ];
+
     return Scaffold(
       body: Column(
         children: [
