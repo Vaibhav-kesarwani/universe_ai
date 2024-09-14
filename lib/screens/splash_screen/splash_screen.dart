@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:universe_ai/helper/global.dart';
+import 'package:universe_ai/helper/pref.dart';
+import 'package:universe_ai/screens/home_screen/home_screen.dart';
 import 'package:universe_ai/screens/onboarding_screen/onboarding_screen.dart';
 import 'package:universe_ai/widget/custom_loader.dart';
 
@@ -20,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => const OnboardingScreen(),
+            builder: (_) => Pref.showOnboarding ? const OnboardingScreen() : const HomeScreen(),
           ),
         );
       },
