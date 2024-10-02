@@ -46,6 +46,10 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: ListView(
+        padding: EdgeInsets.symmetric(
+          horizontal: mq.width * 0.04,
+          vertical: mq.height * 0.015,
+        ),
         children: const [HomeCard()],
       ),
     );
